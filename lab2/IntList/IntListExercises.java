@@ -4,16 +4,18 @@ public class IntListExercises {
 
     /**
      * Part A: (Buggy) mutative method that adds a constant C to each
-     * element of an IntList
-     *
-     * @param lst IntList from Lecture
+     *      * element of an IntList
+     *      *
+     *      * @param lst IntList from Lecture
      */
     public static void addConstant(IntList lst, int c) {
         IntList head = lst;
         while (head.rest != null) {
             head.first += c;
             head = head.rest;
+
         }
+        head.first += c;
     }
 
     /**
@@ -51,10 +53,10 @@ public class IntListExercises {
      */
     public static boolean firstDigitEqualsLastDigit(int x) {
         int lastDigit = x % 10;
-        while (x > 10) {
+        while (x >= 10) {
             x = x / 10;
         }
-        int firstDigit = x % 10;
+        int firstDigit = x;
         return firstDigit == lastDigit;
     }
 
@@ -71,12 +73,20 @@ public class IntListExercises {
             return false;
         }
 
-        boolean currElemIsPrime = Primes.isPrime(lst.first);
+        boolean hasSquaredPrime = false;
+        IntList current = lst;
+        while (current != null) {
+            boolean currElemIsPrime = Primes.isPrime(current.first);
 
-        if (currElemIsPrime) {
-            lst.first *= lst.first;
+            if (currElemIsPrime) {
+                current.first *= current.first;
+                hasSquaredPrime = true;
+            }
+
+            current = current.rest;
         }
 
-        return currElemIsPrime || squarePrimes(lst.rest);
+        return hasSquaredPrime;
     }
+    
 }
