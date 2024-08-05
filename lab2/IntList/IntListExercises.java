@@ -88,5 +88,5 @@ public class IntListExercises {
 
         return hasSquaredPrime;
     }
-    
+
 }
