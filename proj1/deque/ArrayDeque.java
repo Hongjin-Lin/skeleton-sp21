@@ -128,9 +128,6 @@ public class ArrayDeque<T> {
     public T get(int index) {
         return array[first + index];
     }
-
-
-
 }
-}
+
 
