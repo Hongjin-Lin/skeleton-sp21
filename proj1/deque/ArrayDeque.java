@@ -45,6 +45,7 @@ public class ArrayDeque<T> {
             first -= 1;
         }
         array[first] = item;
+        size += 1;
     }
 
     public void addLast(T item) {
@@ -126,6 +127,10 @@ public class ArrayDeque<T> {
     }
 
     public T get(int index) {
+        int position = first + index;
+        if (position >= capacity) {
+            position -= capacity;
+        }
         return array[first + index];
     }
 }
