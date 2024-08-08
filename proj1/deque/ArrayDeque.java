@@ -88,6 +88,7 @@ public class ArrayDeque<T> {
             else{
                 first += 1;
             }
+            size -= 1;
             return removal;
         }
     }
@@ -110,6 +111,7 @@ public class ArrayDeque<T> {
             else{
                 last -= 1;
             }
+            size -= 1;
             return removal;
         }
     }
@@ -131,7 +133,7 @@ public class ArrayDeque<T> {
         if (position >= capacity) {
             position -= capacity;
         }
-        return array[first + index];
+        return array[position];
     }
 }
 
